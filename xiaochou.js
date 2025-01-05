@@ -53,10 +53,10 @@ async function getCards(ext) {
     })
     
     const $ = cheerio.load(data)
-    $('div.col-md-2 resent-grid recommended-grid sports-recommended-grid').each((_, element) => {
-        const title = $(element).find('h5 a').text().trim()
+    $('.col-md-2 resent-grid recommended-grid sports-recommended-grid').each((_, element) => {
+        const title = $(element).find('a.title').text().trim()
         const cover = $(element).find('img').attr('src')
-        const href = $(element).find('h5 a').attr('href')
+        const href = $(element).find('a.title').attr('href')
         
         cards.push({
             vod_id: href,
@@ -64,7 +64,7 @@ async function getCards(ext) {
             vod_pic: cover,
             vod_remarks: '',
             ext: {
-                url: href,
+                url: appConfig.site + href,
             },
         })
     })
