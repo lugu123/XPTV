@@ -5,7 +5,7 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1_1 like Mac OS X) AppleWebKit
 
 let appConfig = {
     ver: 1,
-    title: 'xhamster',
+    title: 'xiaochou',
     site: 'https://eia.jokerlu-sin.buzz',
     tabs: [
         {
