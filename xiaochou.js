@@ -39,14 +39,17 @@ async function getConfig() {
 async function getCards(ext) {
     ext = argsify(ext)
     let cards = []
-    let {href, page = 1 } = ext
-    
-    let url = `${href}-${page}/`
-    
+    let { page = 1, href } = ext
+
+    let url = appConfig.site + href
+    if (page > 1) {
+        url = url + `-${page}/`
+    }
+
     const { data } = await $fetch.get(url, {
-        headers:  {
+        headers: {
             'User-Agent': UA,
-            },
+        },
     })
     
     const $ = cheerio.load(data)
