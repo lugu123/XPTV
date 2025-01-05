@@ -122,7 +122,7 @@ async function search(ext) {
     const text = encodeURIComponent(ext.text)
      let page = ext.page || 1
     
-     let url = `${appConfig.site}/search/${text}/?mode=async&function=get_block&block_id=list_videos_videos_list_search_result&q=${text}&category_ids=&sort_by=&from_videos=${page}&from_albums=${page}`
+     let url = `${appConfig.site}/vodsearch/${text}/----------${page}---/`
     
     const { data } = await $fetch.get(url, {
         headers:  {
@@ -131,19 +131,18 @@ async function search(ext) {
     })
     
     const $ = cheerio.load(data)
-    $('#list_videos_videos_list_search_result_items .item').each((_, element) => {
-        const title = $(element).find('h4 a').text().trim()
-        const cover = $(element).find('img').attr('data-src')
-        const href = $(element).find('h4 a').attr('href')
-        const duration = $(element).find('.card-video__duration').text()
+    $('.col-md-2 resent-grid recommended-grid sports-recommended-grid').each((_, element) => {
+        const title = $(element).find('a.title').text().trim()
+        const cover = $(element).find('img').attr('src')
+        const href = $(element).find('a.title').attr('href')
+        
         cards.push({
             vod_id: href,
             vod_name: title,
             vod_pic: cover,
-            vod_duration: duration,
             vod_remarks: '',
             ext: {
-                url: href,
+                url: appConfig.site + href,
             },
         })
     })
