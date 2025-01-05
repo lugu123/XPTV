@@ -53,7 +53,7 @@ async function getCards(ext) {
     })
     
     const $ = cheerio.load(data)
-    $('#recommended-grids english-grid .div').each((_, element) => {
+    $('div.col-md-2 resent-grid recommended-grid sports-recommended-grid').each((_, element) => {
         const title = $(element).find('h5 a').text().trim()
         const cover = $(element).find('img').attr('src')
         const href = $(element).find('h5 a').attr('href')
