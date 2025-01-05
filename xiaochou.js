@@ -132,9 +132,9 @@ async function search(ext) {
     
     const $ = cheerio.load(data)
     $('.col-md-2 resent-grid recommended-grid sports-recommended-grid').each((_, element) => {
-        const title = $(element).find('a.title').text().trim()
+        const title = $(element).find('.title').text()
         const cover = $(element).find('img').attr('src')
-        const href = $(element).find('a.title').attr('href')
+        const href = $(element).find('.title').attr('href')
         
         cards.push({
             vod_id: href,
