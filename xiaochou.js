@@ -142,7 +142,7 @@ async function search(ext) {
             vod_pic: cover,
             
             ext: {
-                url: appConfig.site + href,
+                url: `${appConfig.site}${href}`,
             },
         })
     })
