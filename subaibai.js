@@ -5,7 +5,7 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit
 
 let appConfig = {
     ver: 1,
-    title: '素白白影视',
+    title: '素白白影院',
     site: 'https://www.subaibaiys.com',
 }
 
