@@ -1,9 +1,9 @@
 {
   "sites": [
     {
-      "name": "小丑",
+      "name": "素白",
       "type": 3,
-      "api": "csp_xiaochou",
+      "api": "csp_subaibai",
       "ext": "https://raw.githubusercontent.com/lugu123/XPTV/refs/heads/main/xiaochou.js"
     }
   ]
