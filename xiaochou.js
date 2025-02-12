@@ -54,15 +54,14 @@ async function getCards(ext) {
     
     const $ = cheerio.load(data)
     $('.col-md-2 resent-grid recommended-grid sports-recommended-grid').each((_, element) => {
-        const title = $(element).find('a.title').text().trim()
-        const cover = $(element).find('img').attr('src')
-        const href = $(element).find('a.title').attr('href')
+        const title = $(element).find('a.title').text().trim(),
+        const cover = $(element).find('img').attr('src'),
+        const href = $(element).find('a.title').attr('href'),
         
         cards.push({
             vod_id: href,
             vod_name: title,
             vod_pic: cover,
-            vod_remarks: '',
             ext: {
                 url: appConfig.site + href,
             },
@@ -132,15 +131,14 @@ async function search(ext) {
     
     const $ = cheerio.load(data)
     $('.col-md-2 resent-grid recommended-grid sports-recommended-grid').each((_, element) => {
-        const title = $(element).find('.title').text()
-        const cover = $(element).find('img').attr('src')
-        const href = $(element).find('.title').attr('href')
+        const title = $(element).find('.title').text(),
+        const cover = $(element).find('img').attr('src'),
+        const href = $(element).find('.title').attr('href'),
         
         cards.push({
             vod_id: href,
             vod_name: title,
             vod_pic: cover,
-            
             ext: {
                 url: `${appConfig.site}${href}`,
             },
