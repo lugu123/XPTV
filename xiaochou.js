@@ -46,11 +46,12 @@ async function getCards(ext) {
         url = url + `-${page}/`
     }
 
-    const { data } = await $fetch.get(url, {
-        headers: {
-            'User-Agent': UA,
-        },
-    })
+   const { data } = await $fetch.get(url, {
+            headers: { 
+                'User-Agent': UA,
+                'Referer': appConfig.site
+            }
+        });
     
     const $ = cheerio.load(data)
     $('.col-md-2 resent-grid recommended-grid sports-recommended-grid').each((_, element) => {
